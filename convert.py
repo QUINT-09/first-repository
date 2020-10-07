@@ -11,7 +11,7 @@ if os.path.isfile(file_path):
     pass
 else: 
     print ("invalid file path")
-    sys.exit()
+    sys.exit(0)
 
 
 folder_path = file_path.rsplit('\\', 1)[0]
