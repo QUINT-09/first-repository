@@ -127,7 +127,7 @@ while ( go_on == "y"):
         get_new_word()
     
     #if the word contains anything else than letters, get a new word
-    while (chosen_word.isalpha() != True)
+    while (chosen_word.isalpha() != True):
         get_new_word()
 
     #split words into letters
