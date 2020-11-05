@@ -218,7 +218,7 @@ while ( go_on == "y"):
         print(states[current_state])
         print("Jij wint!")
         print("")
-        print("Je hebt " + chosen_word + " correct geraden.")
+        print("Je hebt het woord " + chosen_word + " correct geraden.")
         print("")
         #see above
         go_on = input("Wil je nog eens spelen? (typ 'y' om nog eens te spelen) ")
