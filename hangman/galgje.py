@@ -108,7 +108,8 @@ def get_new_word():
     lenght_of_words = len(words)
     chosen_word_number = random.randint(0,lenght_of_words-1)
 
-    chosen_word_nf = str((words[chosen_word_number]))
+    #making sure it's a lowercase string
+    chosen_word_nf = str.lower(str((words[chosen_word_number])))
 
     #format the word
     chosen_word = re.search("b\'(.*)\'",chosen_word_nf).group(1)
