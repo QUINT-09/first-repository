@@ -96,7 +96,7 @@ def get_new_word():
     global chosen_word
     global chosen_word_length
     #get all the words from the site and store them in WORDS
-    response = requests.get("https://www.mit.edu/~ecprice/wordlist.10000")
+    response = requests.get("https://raw.githubusercontent.com/QUINT-09/first-repository/master/resources/10000_dutch_words.txt")
     WORDS = response.content.splitlines()
 
     #using the lenght of the list, choose a random word and store it in chosen_word
@@ -148,16 +148,16 @@ while ( go_on == "y"):
 
         #print the current state of the game and ask for a guess
         clear()
-        print("Type 'stop' to stop playing")
+        print("Typ 'stop' om te stoppen met spelen")
         print(states[current_state])
         print(' '.join(guess_list))
         print("")
-        guess = input("Type a letter: ")
+        guess = input("Typ een letter: ")
 
         #if the input = stop, stop the game
         if (guess == "stop"):
             print("")
-            print("Thank you for playing")
+            print("Bedankt voor het spelen")
             time.sleep(3)
             exit(0)
 
@@ -193,7 +193,7 @@ while ( go_on == "y"):
                         
             else:
                 #intput is not a single letter, alert the player
-                print ("That's not a letter")  
+                print ("Dat is geen letter")  
                 time.sleep(3)  
 
     #the game was lost (we know this because of the has_won variable)
@@ -201,13 +201,13 @@ while ( go_on == "y"):
         #print some stuff
         clear()
         print(states[current_state])
-        print("You lose!")
+        print("Jij verliest!")
         print("")
-        print("The answer was " + chosen_word + ".")
-        print("So far, you had guessed: " + (' '.join(guess_list)))
+        print("Het correcte antwoord was " + chosen_word + ".")
+        print("Tot nu toe had je geraden: " + (' '.join(guess_list)))
         print("")
         #ask if the player want's to play again (this works because the game loop only runs when go_on == y)
-        go_on = input("Do you want to play again? (type 'y' to play again) ")
+        go_on = input("Wil je nog eens spelen? (typ 'y' om nog eens te spelen) ")
     
     #the game was won
     else:
@@ -216,16 +216,16 @@ while ( go_on == "y"):
         #print some stuff
         clear()
         print(states[current_state])
-        print("You win!")
+        print("Jij wint!")
         print("")
-        print("You guessed " + chosen_word + " correctly.")
+        print("Je hebt " + chosen_word + " correct geraden.")
         print("")
         #see above
-        go_on = input("Do you want to play again? (type 'y' to play again) ")
+        go_on = input("Wil je nog eens spelen? (typ 'y' om nog eens te spelen) ")
 
 #the main loop is quit, so the game is quit
 print("")
-print("Thank you for playing")
+print("Bedankt voor het spelen")
 time.sleep(3)
 exit(0)
 
