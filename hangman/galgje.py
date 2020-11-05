@@ -12,6 +12,7 @@ guess_list = []
 current_state = 0
 go_on = "y"
 has_won = 0
+words = []
 
 #making a list off all the states off the gallow
 states = ['''
@@ -95,15 +96,19 @@ def clear():
 def get_new_word():
     global chosen_word
     global chosen_word_length
-    #get all the words from the site and store them in WORDS
-    response = requests.get("https://raw.githubusercontent.com/QUINT-09/first-repository/master/resources/10000_dutch_words.txt")
-    WORDS = response.content.splitlines()
+    global words
+
+    #check if the list of words is empty, if empty get new words
+    if (words == []):
+        #get all the words from the site and store them in words
+        response = requests.get("https://raw.githubusercontent.com/QUINT-09/first-repository/master/resources/10000_dutch_words.txt")
+        words = response.content.splitlines()
 
     #using the lenght of the list, choose a random word and store it in chosen_word
-    lenght_of_words = len(WORDS)
+    lenght_of_words = len(words)
     chosen_word_number = random.randint(0,lenght_of_words-1)
 
-    chosen_word_nf = str((WORDS[chosen_word_number]))
+    chosen_word_nf = str((words[chosen_word_number]))
 
     #format the word
     chosen_word = re.search("b\'(.*)\'",chosen_word_nf).group(1)
