@@ -1,0 +1,8 @@
+[config]
+player_side = w
+ai_depth = 3
+
+[data]
+pieces = 32
+test = tomegalol
+

@@ -1,7 +1,7 @@
 import cv2
 import csv
-image=cv2.imread(r"F:\(1)Pictures\gip\test_pic.png")
-with open("coords.csv") as csvCoords:
+image=cv2.imread(r"src/test_pic_v2_2.jpg")
+with open("src/coords.csv") as csvCoords:
     coords=list(csv.reader(csvCoords))
 
 a=0
@@ -17,18 +17,19 @@ while (a < 24):
         x=int(read_x)
         y=int(read_y)
 
-        h=y+19
-        w=x+19
+        h=y+47
+        w=x+47
+        
 
         print(x,y,w,h)
 
         crop_image=image[y:h, x:w].copy()
         img_name_calc=(round(a/2),b)        
-        img_name=(str(img_name_calc) + ".png")
+        img_name=("src/" + str(img_name_calc) + ".png")
         print(img_name)
         cv2.imwrite(img_name, crop_image)
         cv2.imshow("Cropped", crop_image)
-        cv2.waitKey(50)
+        cv2.waitKey(0)
 
         b+=1
   

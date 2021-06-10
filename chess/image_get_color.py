@@ -2,6 +2,10 @@ import cv2
 import numpy as np
 import csv
 import time
+import itertools
+
+read_csv = csv.reader(open('src/default_board.csv'))
+board = list(read_csv)
 
 a=0
 b=0
@@ -11,7 +15,7 @@ while (a < 12):
 
     while (b < 8):
         img_name_calc=(a,b)
-        img_name=(str(img_name_calc) + ".png")
+        img_name=("src/" + str(img_name_calc) + ".png")
         print(img_name)
         img = cv2.imread(img_name)
         height, width, _ = np.shape(img)
@@ -35,24 +39,29 @@ while (a < 12):
         """ with open("board.csv") as csvBoard:
             board=list(csv.reader(csvBoard)) """
 
-        with open('board.csv', newline='') as f:
+        """ with open('board.csv', newline='') as f:
             board = csv.reader(f)
             for row in board:
-                print(row)
-                
+                print(row) """
 
-        """ read_csv = csv.reader(open('board.csv'))
-        board = list(read_csv)
-        print(board) """
+        
+
+        
+        print(board)
+        print(type(board))
+        print(board[b][a])
+
 
         if r_value < 41 and g_value < 41 and b_value < 41:
-            row[a][b] = 1
+            board[b][a] = 1
         
         elif r_value > 214 and g_value > 214 and b_value > 214:
-            row[a][b] = 2
+            board[b][a] = 2
 
         else:
-            row[a][b] = 0
+            board[b][a] = 0
+
+        print(board[b][a])
         print(board)
 
         """ while row < 8:
@@ -69,11 +78,39 @@ while (a < 12):
 
         # finally, show it side-by-side with the original
         cv2.imshow("Avg Color", np.hstack([img, average_image]))
-        cv2.waitKey(0)
+        cv2.waitKey(250)
 
 
 
         b+=1
     
-    a+=2
+    a+=1
     b=0
+
+
+with open('src/board.csv', 'w', newline='') as file:
+    writer = csv.writer(file, quoting=csv.QUOTE_ALL,delimiter=',')
+    writer.writerows(board)
+
+#pieces = [x for x in board if x != 0]
+
+pieces = board
+
+pieces = list(itertools.chain.from_iterable(pieces))
+
+while pieces.count(0) > 0:
+    pieces.remove(0)
+
+def get_number_of_elements(list):
+    count = 0
+    for element in list:
+        count += 1
+    return count
+
+pieces_amount = get_number_of_elements(pieces)
+
+if (pieces_amount != 32):
+    pass
+    #TODO add logic to retake foto
+else: 
+    print("bob")
