@@ -1,6 +1,7 @@
 import cv2
 import csv
-image=cv2.imread(r"src/test_pic_v2_2.jpg")
+#TODO: use board.png
+image=cv2.imread(r"src/test_pic_v2_2_1missing_1.png")
 with open("src/coords.csv") as csvCoords:
     coords=list(csv.reader(csvCoords))
 

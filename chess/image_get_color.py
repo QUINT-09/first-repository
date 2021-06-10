@@ -78,7 +78,7 @@ while (a < 12):
 
         # finally, show it side-by-side with the original
         cv2.imshow("Avg Color", np.hstack([img, average_image]))
-        cv2.waitKey(250)
+        cv2.waitKey(150)
 
 
 
@@ -98,6 +98,14 @@ pieces = board
 
 pieces = list(itertools.chain.from_iterable(pieces))
 
+print(pieces)
+
+amount_empty = pieces.count(0)
+amount_black = pieces.count(1)
+amount_white = pieces.count(2)
+
+
+
 while pieces.count(0) > 0:
     pieces.remove(0)
 
@@ -107,10 +115,25 @@ def get_number_of_elements(list):
         count += 1
     return count
 
+
+
 pieces_amount = get_number_of_elements(pieces)
 
 if (pieces_amount != 32):
-    pass
+    print("errorp")
     #TODO add logic to retake foto
+elif (amount_empty != 64):
+    print("errore")
+    #TODO add logic to retake foto
+elif (amount_black != 16):
+    print("errorb")
+    #TODO add logic to retake foto
+elif (amount_white != 16):
+    print("errorw")
+    #TODO add logic to retake foto
+elif (amount_black != amount_white):
+    print("errors")
+    #TODO add logic to retake foto
+
 else: 
     print("bob")
