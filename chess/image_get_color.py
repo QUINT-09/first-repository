@@ -3,6 +3,7 @@ import numpy as np
 import csv
 import time
 import itertools
+import hashlib
 
 read_csv = csv.reader(open('src/default_board.csv'))
 board = list(read_csv)
@@ -120,20 +121,39 @@ def get_number_of_elements(list):
 pieces_amount = get_number_of_elements(pieces)
 
 if (pieces_amount != 32):
-    print("errorp")
-    #TODO add logic to retake foto
+    print("error_p")
+    #retake foto here
+    print("foto opnieuw maken")
 elif (amount_empty != 64):
-    print("errore")
-    #TODO add logic to retake foto
+    print("error_e")
+    #retake foto here
+    print("foto opnieuw maken")
 elif (amount_black != 16):
-    print("errorb")
-    #TODO add logic to retake foto
+    print("error_b")
+    #retake foto here
+    print("foto opnieuw maken")
+
 elif (amount_white != 16):
-    print("errorw")
-    #TODO add logic to retake foto
+    print("error_w")
+    #retake foto here
+    print("foto opnieuw maken")
 elif (amount_black != amount_white):
-    print("errors")
-    #TODO add logic to retake foto
+    print("error_s")
+    #retake foto here
+    print("foto opnieuw maken")
 
 else: 
-    print("bob")
+    print("foto correct")
+
+
+#check for difference from the last
+randText1 = str(open("src/board.csv","r",encoding='utf-8'))
+randText2 = str(open("src/board.csv","r",encoding='utf-8'))
+
+if (randText1 == randText2):
+    print("zelde plaats pionen")
+    print("foto opnieuw maken")
+else:
+    print("de pionnen staan op een andere plaats")
+
+
