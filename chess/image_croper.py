@@ -1,6 +1,7 @@
 import cv2
 import csv
 #TODO: use board.png
+#test_pic_v2_2_start_1
 image=cv2.imread(r"src/test_pic_v2_2_1missing_1.png")
 with open("src/coords.csv") as csvCoords:
     coords=list(csv.reader(csvCoords))
@@ -30,7 +31,7 @@ while (a < 24):
         print(img_name)
         cv2.imwrite(img_name, crop_image)
         cv2.imshow("Cropped", crop_image)
-        cv2.waitKey(0)
+        cv2.waitKey(50)
 
         b+=1
   

@@ -79,7 +79,7 @@ while (a < 12):
 
         # finally, show it side-by-side with the original
         cv2.imshow("Avg Color", np.hstack([img, average_image]))
-        cv2.waitKey(150)
+        cv2.waitKey(50)
 
 
 
@@ -150,10 +150,10 @@ else:
 randText1 = str(open("src/board.csv","r",encoding='utf-8'))
 randText2 = str(open("src/board.csv","r",encoding='utf-8'))
 
-if (randText1 == randText2):
+""" if (randText1 == randText2):
     print("zelde plaats pionen")
     print("foto opnieuw maken")
 else:
-    print("de pionnen staan op een andere plaats")
+    print("de pionnen staan op een andere plaats") """
 
 
